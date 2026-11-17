@@ -4,6 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#090b16">
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/icon.svg" type="image/svg+xml">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="description" content="Rony AI Studio — AI video maker">
 <title>Rony AI Studio</title>
 <style>
@@ -38,6 +42,10 @@ label{display:block;font-size:13px;color:#d9def4;margin:14px 0 7px}textarea,sele
 <footer>Rony AI Studio · ব্যক্তিগত প্রজেক্ট · Built step by step</footer>
 </div>
 <script>
+// Enable offline app shell and install support
+if ('serviceWorker' in navigator) window.addEventListener('load',()=>navigator.serviceWorker.register('/sw.js').catch(()=>{}));
+let deferredInstallPrompt=null;
+window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredInstallPrompt=e;const b=document.createElement('button');b.className='pill';b.textContent='📲 অ্যাপ ইনস্টল';b.style.cursor='pointer';b.onclick=async()=>{deferredInstallPrompt.prompt();await deferredInstallPrompt.userChoice;deferredInstallPrompt=null;b.remove()};document.querySelector('.top').appendChild(b)});
 const modeButtons=[...document.querySelectorAll('.mode')];let mode='text';
 modeButtons.forEach(btn=>btn.addEventListener('click',()=>{mode=btn.dataset.mode;modeButtons.forEach(b=>b.classList.toggle('active',b===btn));document.getElementById('uploadBox').hidden=mode!=='image';document.getElementById('prompt').placeholder=mode==='image'?'আপলোড করা ছবিতে কী ধরনের নড়াচড়া বা দৃশ্য চাই তা লেখো...':'যেমন: সবুজ মাঠে একটি মিষ্টি 3D কার্টুন হাতি আনন্দে দৌড়াচ্ছে...';}));
 document.getElementById('generate').addEventListener('click',()=>{const p=document.getElementById('prompt').value.trim();const f=document.getElementById('imageFile').files[0];const n=document.getElementById('notice');if(!p){n.textContent='প্রথমে ভিডিওর বর্ণনা লিখো।';return}if(mode==='image'&&!f){n.textContent='Image to Video ব্যবহারের জন্য আগে একটি ছবি নির্বাচন করো।';return}n.textContent='তোমার Prompt প্রস্তুত হয়েছে। পরবর্তী ডেভেলপমেন্ট ধাপে নিরাপদ AI ভিডিও API যুক্ত করে জেনারেশন চালু করা হবে।';});
