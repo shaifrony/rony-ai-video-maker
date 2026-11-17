@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#090b16">
+<meta name="description" content="Rony AI Studio — AI video maker">
+<title>Rony AI Studio</title>
+<style>
+:root{color-scheme:dark;--bg:#090b16;--panel:#121629;--panel2:#191f36;--line:#29314d;--muted:#a6aec8;--text:#f6f7ff;--a:#8b7cff;--b:#36d6c4}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 80% -10%,#30245b 0,transparent 38%),var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Noto Sans Bengali",sans-serif;min-height:100vh}
+.wrap{max-width:980px;margin:auto;padding:22px 16px 48px}.top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:28px}.brand{display:flex;align-items:center;gap:11px}.logo{width:44px;height:44px;border-radius:14px;background:linear-gradient(135deg,var(--a),#e06bcb);display:grid;place-items:center;font-size:22px;font-weight:900;box-shadow:0 8px 28px #8b7cff55}.brand h1{font-size:18px;margin:0}.brand small{color:var(--muted)}.pill{border:1px solid #3a4262;color:#c8c1ff;border-radius:99px;padding:7px 11px;font-size:12px}
+.hero{margin:18px 0 22px}.hero h2{font-size:clamp(27px,6vw,42px);line-height:1.14;margin:0 0 10px;letter-spacing:-1px}.grad{background:linear-gradient(90deg,#a99cff,#59e4d2);-webkit-background-clip:text;background-clip:text;color:transparent}.hero p{color:var(--muted);margin:0;line-height:1.65}
+.grid{display:grid;grid-template-columns:1.25fr .75fr;gap:16px}.card{background:linear-gradient(180deg,#171c31,#101426);border:1px solid var(--line);border-radius:20px;padding:18px;box-shadow:0 16px 45px #0003}.card h3{font-size:16px;margin:0 0 14px}.modes{display:flex;gap:8px;margin-bottom:15px}.mode{border:1px solid var(--line);background:#101528;color:var(--muted);border-radius:12px;padding:10px 13px;cursor:pointer}.mode.active{background:#29234d;border-color:#7668db;color:white}
+label{display:block;font-size:13px;color:#d9def4;margin:14px 0 7px}textarea,select,input[type=text]{width:100%;background:#0b1020;border:1px solid #303957;border-radius:12px;padding:13px;color:white;font:inherit;outline:none}textarea{min-height:126px;resize:vertical}textarea:focus,select:focus{border-color:var(--a)}.hint{font-size:12px;color:var(--muted);margin-top:7px}.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}.upload{border:1px dashed #566080;border-radius:13px;padding:17px;text-align:center;color:var(--muted);font-size:13px}.upload input{max-width:100%;margin-top:9px}.primary{width:100%;border:0;border-radius:13px;padding:14px;margin-top:18px;background:linear-gradient(100deg,#7668e8,#a05de0);color:white;font-weight:750;font-size:15px;cursor:pointer}.primary:disabled{opacity:.55;cursor:not-allowed}.preview{aspect-ratio:9/16;max-height:330px;border:1px solid #303957;border-radius:16px;background:radial-gradient(circle at 50% 35%,#29234c,#0b1020 65%);display:grid;place-items:center;text-align:center;padding:20px;color:var(--muted)}.preview .play{width:56px;height:56px;border-radius:50%;background:#ffffff15;display:grid;place-items:center;font-size:22px;margin:0 auto 12px;color:white}.status{margin-top:14px;padding:12px;border-radius:12px;background:#111a2b;border:1px solid #293b55;color:#c3d5ec;font-size:13px;line-height:1.55}.features{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}.feature{background:#111629;border:1px solid var(--line);padding:13px;border-radius:14px}.feature b{display:block;font-size:13px}.feature span{font-size:11px;color:var(--muted)}footer{text-align:center;color:#7f89a8;font-size:12px;margin-top:26px}
+@media(max-width:720px){.grid{grid-template-columns:1fr}.preview{aspect-ratio:16/9;max-height:none}.features{grid-template-columns:1fr 1fr}.top{align-items:flex-start}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top"><div class="brand"><div class="logo">R</div><div><h1>Rony AI Studio</h1><small>তোমার সৃজনশীল AI ভিডিও স্টুডিও</small></div></div><span class="pill">প্রথম সংস্করণ · Preview</span></header>
+<section class="hero"><h2>ভাবনাকে বদলে দাও<br><span class="grad">চলমান ভিডিওতে</span></h2><p>বাংলা বা ইংরেজিতে বর্ণনা লেখো, ভিডিওর ধরন বেছে নাও, আর নিজের সৃজনশীল আইডিয়া সাজাও।</p></section>
+<div class="grid">
+<section class="card">
+<h3>✨ নতুন ভিডিও তৈরি</h3>
+<div class="modes"><button class="mode active" data-mode="text">Text to Video</button><button class="mode" data-mode="image">Image to Video</button></div>
+<label for="prompt">তোমার ভিডিওর বর্ণনা (Prompt)</label>
+<textarea id="prompt" placeholder="যেমন: সবুজ মাঠে একটি মিষ্টি 3D কার্টুন হাতি আনন্দে দৌড়াচ্ছে, সিনেমাটিক আলো, মসৃণ অ্যানিমেশন..."></textarea>
+<div class="hint">ভালো ফলের জন্য দৃশ্য, চরিত্র, কাজ, পরিবেশ ও ক্যামেরার ধরন উল্লেখ করো।</div>
+<div id="uploadBox" class="upload" hidden>ছবি নির্বাচন করো<br><input id="imageFile" type="file" accept="image/*"></div>
+<div class="two"><div><label for="ratio">ভিডিওর অনুপাত</label><select id="ratio"><option value="9:16">9:16 · Reels / Shorts</option><option value="16:9">16:9 · YouTube</option><option value="1:1">1:1 · Square</option></select></div><div><label for="duration">দৈর্ঘ্য</label><select id="duration"><option>5 সেকেন্ড</option><option>10 সেকেন্ড</option><option>15 সেকেন্ড</option></select></div></div>
+<div class="two"><div><label for="style">ভিডিওর স্টাইল</label><select id="style"><option>3D Cartoon</option><option>Realistic</option><option>Anime</option><option>Cinematic</option></select></div><div><label for="language">Prompt ভাষা</label><select id="language"><option>বাংলা</option><option>English</option></select></div></div>
+<button class="primary" id="generate">AI ভিডিও ইঞ্জিন সংযোগের অপেক্ষায়</button>
+<div class="status" id="notice">এটি অ্যাপের প্রথম UI সংস্করণ। ভিডিও জেনারেশন চালু করতে পরবর্তী ধাপে একটি বাস্তব AI মডেল/API যুক্ত করতে হবে। কোনো ভুয়া জেনারেশন বা ডাউনলোড দেখানো হচ্ছে না।</div>
+</section>
+<aside class="card"><h3>ভিডিও প্রিভিউ</h3><div class="preview" id="preview"><div><div class="play">▶</div><b>তোমার ভিডিও এখানে দেখা যাবে</b><div class="hint">AI ইঞ্জিন যুক্ত হলে তৈরি ভিডিও প্লে হবে</div></div></div><div class="features"><div class="feature"><b>বাংলা Prompt</b><span>সহজ বর্ণনা</span></div><div class="feature"><b>HD প্রস্তুতি</b><span>মডেলভেদে</span></div><div class="feature"><b>MP4</b><span>ডাউনলোড সুবিধা</span></div></div></aside>
+</div>
+<footer>Rony AI Studio · ব্যক্তিগত প্রজেক্ট · Built step by step</footer>
+</div>
+<script>
+const modeButtons=[...document.querySelectorAll('.mode')];let mode='text';
+modeButtons.forEach(btn=>btn.addEventListener('click',()=>{mode=btn.dataset.mode;modeButtons.forEach(b=>b.classList.toggle('active',b===btn));document.getElementById('uploadBox').hidden=mode!=='image';document.getElementById('prompt').placeholder=mode==='image'?'আপলোড করা ছবিতে কী ধরনের নড়াচড়া বা দৃশ্য চাই তা লেখো...':'যেমন: সবুজ মাঠে একটি মিষ্টি 3D কার্টুন হাতি আনন্দে দৌড়াচ্ছে...';}));
+document.getElementById('generate').addEventListener('click',()=>{const p=document.getElementById('prompt').value.trim();const f=document.getElementById('imageFile').files[0];const n=document.getElementById('notice');if(!p){n.textContent='প্রথমে ভিডিওর বর্ণনা লিখো।';return}if(mode==='image'&&!f){n.textContent='Image to Video ব্যবহারের জন্য আগে একটি ছবি নির্বাচন করো।';return}n.textContent='তোমার Prompt প্রস্তুত হয়েছে। পরবর্তী ডেভেলপমেন্ট ধাপে নিরাপদ AI ভিডিও API যুক্ত করে জেনারেশন চালু করা হবে।';});
+</script>
+</body>
+</html>
